@@ -1,0 +1,403 @@
+/* Complete CSS code */
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  background: #111;
+  scroll-behavior: smooth;
+}
+
+/* Background slider */
+#bg-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0;
+  animation: slidefade 20s infinite;
+  will-change: opacity;
+}
+.slide:nth-child(1) {
+  background-image: url('https://images.unsplash.com/photo-1517971071642-161f4a8e66f7?auto=format&fit=crop&w=1920&q=80');
+  animation-delay: 0s;
+}
+.slide:nth-child(2) {
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+  animation-delay: 6.6s;
+}
+.slide:nth-child(3) {
+  background-image: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1920&q=80');
+  animation-delay: 13.3s;
+}
+@keyframes slidefade {
+  0%, 100% { opacity: 0; }
+  10%, 30% { opacity: 1; }
+  40% { opacity: 0; }
+}
+
+/* Overlay to darken bg */
+#bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17,17,17,0.7);
+  z-index: 0;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 123, 255, 0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  box-shadow: 0 0 10px rgba(0,123,255,0.7);
+  z-index: 10;
+  user-select: none;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff7;
+  cursor: pointer;
+}
+#logo img {
+  height: 50px;
+  width: 55px;
+  border-radius: 60%;
+  box-shadow: 0 0 15px #0ff9;
+  animation: pulseGlow 2.8s infinite ease-in-out;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px #0ffb, 0 0 20px #0ff7; }
+  50% { box-shadow: 0 0 25px #0ff, 0 0 35px #0ff; }
+}
+.logo-text {
+  font-weight: 900;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+#logo:hover .logo-text {
+  color: #fff;
+  text-shadow: 0 0 12px #0ff, 0 0 20px #0ff;
+}
+
+nav {
+  flex-grow: 1;
+  margin-left: 0;
+}
+nav a {
+  color: #d0e9ff;
+  margin: 4px 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+nav a:hover, nav a.active {
+  color: #a4d4ff;
+  border-color: #a4d4ff;
+}
+
+/* Auth buttons */
+#auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#auth-buttons button {
+  background: transparent;
+  border: 2px solid #d0e9ff;
+  border-radius: 24px;
+  color: #d0e9ff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  transition: all 0.3s ease;
+  min-width: 80px;
+  user-select: none;
+  box-shadow: 0 0 6px #50a6ff44 inset;
+}
+#auth-buttons button:hover {
+  color: #0ff;
+  border-color: #0ff;
+  box-shadow: 0 0 12px #0ff inset;
+  background-color: rgba(0,255,255,0.15);
+}
+
+/* Main content */
+main {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  max-width: 1100px;
+  padding: 20px 16px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0,0,0,0.5);
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,255,255,0.1);
+}
+section {
+  margin-bottom: 48px;
+}
+h1, h2, h3, h4 {
+  color: #0ff;
+  text-shadow: 0 0 10px #0ffbb;
+  margin-bottom: 12px;
+}
+p {
+  color: #cceeffcc;
+  line-height: 1.4;
+}
+
+/* Forms */
+form {
+  background: #004d7a;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #00ffff50 inset;
+  max-width: 480px;
+}
+label {
+  margin-top: 12px;
+  display: block;
+  font-weight: 600;
+  color: #a0eaff;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: inset 0 0 7px #00ffff88;
+  background: #013f5c;
+  color: #c0f9ff;
+  outline-offset: 2px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+  box-shadow: 0 0 15px #00ffffcc;
+  background: #025f90;
+}
+textarea:focus {
+  background: #025f90;
+  box-shadow: 0 0 15px #00ffffcc;
+}
+input[type="radio"] {
+  appearance: auto;
+  -webkit-appearance: radio;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #00ffff;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+input[type="radio"]:focus {
+  outline: 2px solid #00ffffaa;
+}
+fieldset {
+  border: none;
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+legend {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #00ffff;
+  margin-bottom: 10px;
+  display: block;
+}
+button[type="submit"], button[type="button"] {
+  margin-top: 20px;
+  background-color: #00ffff;
+  color: #003740;
+  font-weight: 700;
+  border-radius: 16px;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  box-shadow: 0 0 15px #00ffffbb;
+  transition: background-color 0.3s, transform 0.2s;
+}
+button[type="submit"]:hover, button[type="button"]:hover {
+  background-color: #00e6e6;
+  transform: scale(1.05);
+}
+button:focus {
+  outline: 2px dashed #00ffff;
+  outline-offset: 4px;
+}
+
+/* College List */
+.sector-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 22px;
+  justify-content: center;
+}
+.sector-buttons button {
+  cursor: pointer;
+  background: #005eaa;
+  border-radius: 24px;
+  padding: 10px 22px;
+  font-weight: 700;
+  color: #a0eaff;
+  box-shadow: 0 0 9px #00ffff55 inset;
+  transition: all 0.3s ease;
+  flex: 1 1 100px;
+  text-align: center;
+  user-select: none;
+  border: 2px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.sector-buttons button:hover,
+.sector-buttons button.active {
+  background: #00ffff;
+  color: #004d40;
+  border-color: #00e6e6;
+  box-shadow: 0 0 18px #00ffffcc inset;
+}
+#college-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.college-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.college-card {
+  background: #011e2a;
+  border-radius: 12px;
+  padding: 16px;
+  color: #fff;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.college-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
+}
+.college-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.college-card h4 {
+  margin: 4px 0;
+  color: #00ffff;
+  font-weight: 700;
+  text-shadow: 0 0 4px #00e6e6;
+}
+.college-card p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #a0eaffcc;
+  margin-bottom: 4px;
+}
+.college-card .location-link {
+  color: #99ffff;
+  font-style: italic;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.college-card .location-link:hover {
+  color: #ccffff;
+}
+.college-card button {
+  margin-top: auto;
+  background: #00ffff;
+  border: none;
+  color: #004d40;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00ffffbb;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive for college cards */
+@media (max-width: 1024px) {
+  .college-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .college-container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .college-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .college-card {
+    padding: 10px;
+  }
+}
+
+/* Hide sections by [hidden] attribute */
+section[hidden] {
+  display: none;
+}
+nav#main-nav {
+  transition: all 0.3s ease;
+}

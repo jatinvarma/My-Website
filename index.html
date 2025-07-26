@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future Forges - Educational Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="futureforge-logo.png" />
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <img src="futureforge-logo.jpg" alt="A futuristic anvil logo for Future Forges">
+      <span class="logo-text">Future Forges</span>
+    </div>
+    <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
+    <nav id="main-nav">
+      <a href="#home" class="nav-link active" aria-current="page">Home</a>
+      <a href="#about" class="nav-link">About Us</a>
+      <a href="#test" class="nav-link">Test Yourself</a>
+      <a href="#preferences" class="nav-link">Preferences</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div id="auth-buttons">
+      <button id="login-btn" type="button">Login</button>
+      <button id="signup-btn" type="button">Sign Up</button>
+    </div>
+    <div id="cart-btn" title="Your Cart">
+  🛒 <span id="cart-count">0</span>
+</div>
+  </header>
+  <main>
+    <section id="home">
+      <h1 class="animate__animated animate__fadeInDown">Welcome to Future Forges</h1>
+      <p>Your gateway to discovering colleges tailored to your interests and aptitudes.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Future Forges helps students discover their best-fit colleges through personalized psychometric analysis.</p>
+    </section>
+
+    <section id="test">
+      <h2>Psychometric Test</h2>
+      <form id="test-form">
+        <fieldset>
+          <legend>1. Which activity do you enjoy most?</legend>
+          <label for="q1-gaming"><input type="radio" id="q1-gaming" name="q1" value="gaming" required> Playing Video Games</label>
+          <label for="q1-medical"><input type="radio" id="q1-medical" name="q1" value="medical"> Helping others medically</label>
+          <label for="q1-engineering"><input type="radio" id="q1-engineering" name="q1" value="engineering"> Solving technical problems</label>
+        </fieldset>
+        <fieldset>
+          <legend>2. Choose a preferred school subject:</legend>
+          <label for="q2-gaming"><input type="radio" id="q2-gaming" name="q2" value="gaming" required> Game Design</label>
+          <label for="q2-medical"><input type="radio" id="q2-medical" name="q2" value="medical"> Biology</label>
+          <label for="q2-engineering"><input type="radio" id="q2-engineering" name="q2" value="engineering"> Mathematics</label>
+        </fieldset>
+        <fieldset>
+          <legend>3. Pick a hobby:</legend>
+          <label for="q3-gaming"><input type="radio" id="q3-gaming" name="q3" value="gaming" required> Streaming/Playing Games</label>
+          <label for="q3-medical"><input type="radio" id="q3-medical" name="q3" value="medical"> Volunteering</label>
+          <label for="q3-engineering"><input type="radio" id="q3-engineering" name="q3" value="engineering"> Building DIY Projects</label>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="test-result"></div>
+    </section>
+
+    <section id="preferences">
+      <h2>Recommended Colleges</h2>
+      <div class="sector-buttons">
+        <button data-sector="gaming" class="active" type="button">Gaming</button>
+        <button data-sector="medical" type="button">Medical</button>
+        <button data-sector="engineering" type="button">Engineering</button>
+      </div>
+      <div id="college-list"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form id="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+        <div id="form-status"></div>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+<!-- Auth Modal -->
+<div id="auth-modal" class="modal" hidden>
+  <div class="modal-content">
+    <span id="auth-close" class="modal-close">&times;</span>
+    <h2 id="auth-title">Login</h2>
+    <form id="auth-form">
+      <div id="username-group" hidden>
+        <label for="auth-username">Username</label>
+        <input type="text" id="auth-username" name="username">
+      </div>
+
+      <label for="auth-email">Email</label>
+      <input type="email" id="auth-email" name="email" required>
+
+      <label for="auth-password">Password</label>
+      <input type="password" id="auth-password" name="password" required>
+
+      <button type="submit" id="auth-submit">Login</button>
+    </form>
+    <p id="auth-toggle-text">
+      Don’t have an account?
+      <a href="#" id="toggle-auth-mode">Sign Up</a>
+    </p>
+  </div>
+</div>
+<!-- Auth Modal -->
+<div id="auth-modal" class="modal" hidden>
+  <div class="modal-content">
+    <span id="auth-close" class="modal-close">&times;</span>
+    <h2 id="auth-title">Login</h2>
+    <form id="auth-form">
+      <div id="username-group" hidden>
+        <label for="auth-username">Username</label>
+        <input type="text" id="auth-username" name="auth-username">
+      </div>
+      <label for="auth-email">Email</label>
+      <input type="email" id="auth-email" name="auth-email" required>
+      <label for="auth-password">Password</label>
+      <input type="password" id="auth-password" name="auth-password" required>
+      <button type="submit" id="auth-submit">Login</button>
+    </form>
+    <p id="auth-toggle-text">
+      Don’t have an account? <a href="#" id="toggle-auth-mode">Sign Up</a>
+    </p>
+  </div>
+</div>
+<script src="app.js"></script>
+<!-- Cart Modal -->
+<div id="cart-modal" class="modal" hidden>
+  <div class="modal-content">
+    <span id="cart-close" class="modal-close">&times;</span>
+    <h2>Your Cart</h2>
+    <ul id="cart-list"></ul>
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+  // Show only home section at start
+  const sections = document.querySelectorAll('main section');
+  sections.forEach(section => {
+    section.hidden = section.id !== 'home';
+  });
+
+  // Toggle menu visibility
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    const nav = document.getElementById('main-nav');
+    nav.classList.toggle('visible');
+  });
+
+  // Handle auth modal toggle
+  const authModal = document.getElementById('auth-modal');
+  const authClose = document.getElementById('auth-close
